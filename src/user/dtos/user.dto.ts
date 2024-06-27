@@ -4,5 +4,5 @@ export class UserDto{
     surname?: string;
     email?: string;
     password?: string;
-    // books?: Book[]
+    about?: string;
 }

@@ -1,4 +1,4 @@
-
+import { Book } from "src/book/entities/book.entity"; // Ažurirajte putanju ako je potrebno
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -7,17 +7,20 @@ export class User {
     id: number;
 
     @Column()
-    name: string
+    name: string;
 
     @Column()
-    surname: string
+    surname: string;
 
     @Column({ unique: true })
-    email: string
+    email: string;
 
     @Column()
-    password: string
+    password: string;
 
-    // @OneToMany(() => Book, (book) => book.author)
-    // books: Book[]
+    @Column({nullable: true})
+    about: string;
+
+    @OneToMany(() => Book, (book) => book.author)
+    books: Book[];
 }
