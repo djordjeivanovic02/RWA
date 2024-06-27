@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { Book } from '../entities/book.entity';
 import { User } from 'src/user/entities/user.entity';
 import { CreateBookDto } from '../dtos/createBook.dto';
@@ -35,4 +35,23 @@ export class BookService {
           catchError((error) => throwError(() => error)),
         );
       }
+
+    getAllBooks():Observable<Book[]>{
+      return from(this.bookRepository.find());
+    }
+
+    getBook(id: number): Observable<Book>{
+      return from(this.bookRepository.findOne({where: {id: id}}));
+    }
+
+    updateBook(
+      id: number,
+      book: Book
+    ): Observable<UpdateResult>{
+      return from(this.bookRepository.update(id, book));
+    }
+
+    deleteBook(id: number): Observable<DeleteResult>{
+      return from(this.bookRepository.delete(id));
+    }
 }
