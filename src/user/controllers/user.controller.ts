@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { User } from '../entities/user.entity';
 import { Observable, filter } from 'rxjs';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { Book } from 'src/book/entities/book.entity';
 
 @Controller('user')
 export class UserController {
@@ -22,7 +23,14 @@ export class UserController {
     getUser(
         @Param('id') id: number
     ): Observable<User>{
-        return this.userService.getUser(id)
+        return this.userService.getUser(id);
+    }
+
+    @Get(':id/mybooks')
+    getUserBooks(
+        @Param('id') id: number
+    ): Observable<Book[]>{
+        return this.userService.getUserBooks(id);
     }
 
     @Put(':id')
