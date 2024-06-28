@@ -1,3 +1,4 @@
+import { BookList } from "src/booklist/entities/booklist.entity";
 import { Comment } from "src/comment/entities/comment.entity";
 import { Rate } from "src/rate/entities/rate.entity";
 import { User } from "src/user/entities/user.entity";
@@ -22,10 +23,7 @@ export class Book {
 
     @Column({ type: 'int', default: 0 })
     downloads: number;
-
-    @Column({ type: 'int', default: 0 })
-    rate: number;
-
+    
     @Column()
     genre: string;
 
@@ -33,8 +31,11 @@ export class Book {
     author: User;
 
     @OneToMany(() => Comment, (comment) => comment.book)
-    comments: Comment[]
+    comments: Comment[];
 
     @OneToMany(() => Rate, (rate) => rate.book)
-    rates: Rate[]
+    rates: Rate[];
+
+    @OneToMany(() => BookList, (bookList) => bookList.book)
+    lists: BookList[];
 }

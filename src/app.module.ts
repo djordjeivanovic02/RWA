@@ -8,6 +8,7 @@ import { BookModule } from './book/book.module';
 import { CommentController } from './comment/controllers/comment.controller';
 import { CommentModule } from './comment/comment.module';
 import { RateModule } from './rate/rate.module';
+import { BooklistModule } from './booklist/booklist.module';
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import { RateModule } from './rate/rate.module';
     UserModule,
     BookModule,
     CommentModule,
-    RateModule
+    RateModule,
+    BooklistModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,4 +1,5 @@
 import { Book } from "src/book/entities/book.entity";
+import { BookList } from "src/booklist/entities/booklist.entity";
 import { Comment } from "src/comment/entities/comment.entity";
 import { Rate } from "src/rate/entities/rate.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
@@ -31,4 +32,7 @@ export class User {
 
     @OneToMany(() => Rate, (rate) => rate.user)
     rates: Rate[];
+
+    @OneToMany(() => BookList, (bookList) => bookList.user)
+    lists: BookList[];
 }
