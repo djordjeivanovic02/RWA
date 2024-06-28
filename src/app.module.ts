@@ -9,6 +9,7 @@ import { CommentController } from './comment/controllers/comment.controller';
 import { CommentModule } from './comment/comment.module';
 import { RateModule } from './rate/rate.module';
 import { BooklistModule } from './booklist/booklist.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -27,7 +28,8 @@ import { BooklistModule } from './booklist/booklist.module';
     BookModule,
     CommentModule,
     RateModule,
-    BooklistModule
+    BooklistModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
