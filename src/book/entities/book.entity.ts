@@ -1,4 +1,5 @@
 import { Comment } from "src/comment/entities/comment.entity";
+import { Rate } from "src/rate/entities/rate.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -33,4 +34,7 @@ export class Book {
 
     @OneToMany(() => Comment, (comment) => comment.book)
     comments: Comment[]
+
+    @OneToMany(() => Rate, (rate) => rate.book)
+    rates: Rate[]
 }
