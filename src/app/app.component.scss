@@ -1,0 +1,42 @@
+.first-nav{
+    max-width: 1310px;
+    padding: 20px 20px;
+    display: flex;
+}
+
+.first-nav h1{
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.first-nav h1 span{
+    color: var(--main-color);
+}
+.first-nav a{
+    text-decoration: none;
+    color: black;
+    transition-duration: .3s;
+}
+
+.first-nav a:hover{
+    color: var(--main-color);
+    scale: 1.2;
+}
+.second-nav{
+    background-color: var(--main-color);
+    padding: 13px 20px;
+}
+.two-icon{
+    width: 70px;
+    display: flex;
+}
+.second-nav a{
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    font-weight: 400;
+    transition-duration: .3s;
+}
+.second-nav a:hover{
+    color: lightgray;
+}
