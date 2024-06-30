@@ -1,6 +1,8 @@
 .books-container{
+    margin: 0 auto;
     margin-top: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-flow: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
 }

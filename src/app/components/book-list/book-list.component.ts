@@ -4,6 +4,9 @@ import { BookService } from '../../services/book.service';
 import { map } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { BookItemComponent } from '../book-item/book-item.component';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app.state';
+import { selectAllBooks } from '../../store/book/book.selector';
 
 @Component({
   selector: 'app-book-list',
@@ -18,13 +21,14 @@ import { BookItemComponent } from '../book-item/book-item.component';
 export class BookListComponent implements OnInit{
   books: Book[] = [];
 
-  constructor(private bookService: BookService){}
+  constructor(private store: Store<AppState>){}
 
   ngOnInit(): void {
-    this.bookService.getBooks().pipe(
+    this.store.select(selectAllBooks).pipe(
       map((books: Book[]) => {
         return books.map(book => ({
           id: book.id,
+          author: book.author,
           title: book.title,
           image: "https://static.kupindoslike.com/Laza-Lazarevic-Prvi-put-s-ocem-na-jutrenje_slika_O_92988461.jpg"
         }));

@@ -25,7 +25,7 @@
     margin-bottom: 10px;
 }
 .book-item .book-info{
-    padding: 20px 5px;
+    padding: 20px 10px;
 }
 .icon{
     margin-right: 5px;
@@ -38,3 +38,33 @@
 .book-item:hover h2{
     color: var(--main-color);
 }
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Razmak između widgeta */
+  }
+  
+  .book-item {
+    flex: 1 1 calc(25% - 16px); /* Za 4 widgeta u jednom redu, 25% širina minus razmak */
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 1200px) {
+    .book-item {
+      flex: 1 1 calc(33.33% - 16px); /* Za 3 widgeta u jednom redu */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .book-item {
+      flex: 1 1 calc(50% - 16px); /* Za 2 widgeta u jednom redu */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .book-item {
+      flex: 1 1 100%; /* Za 1 widget u jednom redu */
+    }
+  }
+  
