@@ -12,6 +12,9 @@ export class BookService {
   constructor(private httpClient: HttpClient) { }
 
   getBooks(): Observable<Book[]>{
-    return this.httpClient.get<Book[]>(`${this.baseUrl}/book`)
+    return this.httpClient.get<Book[]>(`${this.baseUrl}/book`);
+  }
+  getBook(id: number): Observable<Book>{
+    return this.httpClient.get<Book>(`${this.baseUrl}/book/${id}`);
   }
 }

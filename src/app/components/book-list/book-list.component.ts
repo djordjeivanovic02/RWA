@@ -7,6 +7,8 @@ import { BookItemComponent } from '../book-item/book-item.component';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 import { selectAllBooks } from '../../store/book/book.selector';
+import { selectBook } from '../../store/book/book.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
@@ -21,7 +23,7 @@ import { selectAllBooks } from '../../store/book/book.selector';
 export class BookListComponent implements OnInit{
   books: Book[] = [];
 
-  constructor(private store: Store<AppState>){}
+  constructor(private store: Store<AppState>, private router: Router){}
 
   ngOnInit(): void {
     this.store.select(selectAllBooks).pipe(
@@ -44,5 +46,10 @@ export class BookListComponent implements OnInit{
       console.log(books);
       this.books = books;
     });
+  }
+
+  onSelect(bookId: number) {
+    this.store.dispatch(selectBook({ bookId: bookId }));
+    this.router.navigate(['/book', bookId]);
   }
 }

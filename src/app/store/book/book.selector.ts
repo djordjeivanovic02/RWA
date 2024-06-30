@@ -15,3 +15,16 @@ export const selectAllBooksAsDict = createSelector(
     booksFeature,
     (books) => books.entities
 );
+
+export const selectCurrentBookId = createSelector(
+    booksFeature,
+    (books) => books.selectedBookId,
+);
+
+export const selectCurrentBook = createSelector(
+   selectAllBooksAsDict,
+   selectCurrentBookId,
+   (bookDict, bookId) => {
+    return bookId ? bookDict[bookId] : undefined
+   }
+)

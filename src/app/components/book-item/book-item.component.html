@@ -1,4 +1,4 @@
-<div *ngIf="book !== undefined && book.id !== undefined" class="book-item d-flex flex-column" (click)="goToBookScreen(book.id)">
+<div *ngIf="book !== undefined && book.id !== undefined" class="book-item d-flex flex-column" (click)="onRedirectClick($event)">
     <div class="book-image">
         <img src="{{book.image}}" class="w-100" alt="Book Image" srcset="">
     </div>

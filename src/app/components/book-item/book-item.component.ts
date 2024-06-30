@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { Book } from '../../models/book';
 import { CommonModule } from '@angular/common';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -19,11 +19,21 @@ export class BookItemComponent {
   @Input()
   book?: Book;
 
+  @Output()
+  selektovan: EventEmitter<number> = new EventEmitter<number>();
+
+  constructor(private router: Router) {}
+
+  onRedirectClick(ev: Event){
+    if(this.book){
+      this.selektovan.emit(this.book.id);
+    }
+  }
+
   faStar = faStar;
   faDownload = faDownload;
   faBookReader = faBookReader;
 
-  constructor(private router: Router) {}
 
   get truncatedTitle(): string {
     if (!this.book || !this.book.title) {
@@ -34,7 +44,5 @@ export class BookItemComponent {
       : this.book.title;
   }
 
-  goToBookScreen(bookId: number): void{
-    this.router.navigate(['/book', bookId])
-  }
+
 }

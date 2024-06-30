@@ -1,2 +1,51 @@
-<p>book-screen works!</p>
-<h1>{{bookId}}</h1>
+<div class="w-100 d-flex justify-content-center">
+    <div class="main-container w-100 d-flex">
+        <div class="best-sales-container">
+            <h3>Popularne knjige</h3>
+            <div class="best-item d-flex align-items-center">
+                <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
+                <div class="best-item-text">
+                    <h4 class="m-0">Pocni sa zasto</h4>
+                    <i class="m-0">Belestrika</i>
+                </div>
+            </div>
+            <div class="best-item d-flex align-items-center">
+                <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
+                <div class="best-item-text">
+                    <h4 class="m-0">Pocni sa zasto</h4>
+                    <i class="m-0">Belestrika</i>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Test" class="w-100 h-100">
+        </div>
+        <div class="book-info-container">
+            <h1>{{book?.title}}</h1>
+            <p>{{truncatedTitle}}</p>
+            <table>
+                <tr>
+                  <td>Red 1, Kolona 1</td>
+                  <td>Red 1, Kolona 2</td>
+                </tr>
+                <tr>
+                  <td>Red 2, Kolona 1</td>
+                  <td>Red 2, Kolona 2</td>
+                </tr>
+                <tr>
+                  <td>Red 3, Kolona 1</td>
+                  <td>Red 3, Kolona 2</td>
+                </tr>
+                <tr>
+                  <td>Red 4, Kolona 1</td>
+                  <td>Red 4, Kolona 2</td>
+                </tr>
+                <tr>
+                  <td>Red 5, Kolona 1</td>
+                  <td>Red 5, Kolona 2</td>
+                </tr>
+              </table>
+              
+        </div>
+    </div>
+</div>
