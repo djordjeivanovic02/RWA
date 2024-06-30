@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
 import { BookService } from '../../services/book.service';
-import { map } from 'rxjs';
+import { empty, map } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { BookItemComponent } from '../book-item/book-item.component';
 import { Store } from '@ngrx/store';
@@ -26,11 +26,19 @@ export class BookListComponent implements OnInit{
   ngOnInit(): void {
     this.store.select(selectAllBooks).pipe(
       map((books: Book[]) => {
-        return books.map(book => ({
-          id: book.id,
-          title: book.title,
-          image: "https://static.kupindoslike.com/Laza-Lazarevic-Prvi-put-s-ocem-na-jutrenje_slika_O_92988461.jpg"
-        }));
+        return books.map(book => {
+          let averageRate = 0.0;
+          if(book.rates !== undefined && book.rates.length > 0){
+            averageRate = book.rates.reduce((sum, r) => sum + r.rate, 0) / book.rates.length;
+          }
+          return {
+            id: book.id,
+            author: book.author,
+            averageRate: averageRate,
+            image: "http://127.0.0.1:3000/" + book.image,
+            title: book.title,
+          };
+        });
       })
     ).subscribe((books) => {
       console.log(books);

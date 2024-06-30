@@ -1,3 +1,4 @@
+import { Rate } from "./rate";
 import { User } from "./user";
 
 export interface Book {
@@ -9,6 +10,7 @@ export interface Book {
     created_at?: Date;
     format?: string;
     downloads?: number;
-    rate?: number;
+    rates?: Rate[];
     genre?: string;
+    averageRate: number
 }
