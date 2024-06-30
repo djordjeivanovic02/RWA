@@ -28,7 +28,6 @@ export class BookListComponent implements OnInit{
       map((books: Book[]) => {
         return books.map(book => ({
           id: book.id,
-          author: book.author,
           title: book.title,
           image: "https://static.kupindoslike.com/Laza-Lazarevic-Prvi-put-s-ocem-na-jutrenje_slika_O_92988461.jpg"
         }));
