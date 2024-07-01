@@ -19,7 +19,7 @@ import { BooksEffects } from './store/book/book.effect';
 import { reducers, metaReducers } from './app.state';
 import { LoginComponent } from './components/login/login.component';
 import { TextInputComponent } from './components/parts/text-input/text-input.component';
-
+import { LoginRegisterButtonComponent } from './components/parts/login-register-button/login-register-button.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +30,7 @@ import { TextInputComponent } from './components/parts/text-input/text-input.com
     HomeComponent,
     LoginComponent,
     TextInputComponent,
+    LoginRegisterButtonComponent,
   ],
   imports: [
     BrowserModule,

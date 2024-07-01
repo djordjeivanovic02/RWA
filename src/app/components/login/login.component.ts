@@ -10,4 +10,8 @@ export class LoginComponent {
   constructor(){
     this.mainImagePath = '/assets/images/login-background.jpg'
   }
+
+  onEmailChange(value: string): void{
+    console.log(value);
+  }
 }

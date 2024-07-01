@@ -35,5 +35,21 @@
     padding: 20px;
 }
 .login-main{
-    max-width: 400px;
+    max-width: 700px;
+    padding: 50px 30px;
+    background-color: var(--light-gray);
+}
+hr{
+    border: 1px solid black;
+}
+
+.another-action a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition-duration: .3s;
+}
+
+.another-action a:hover{
+    color: var(--main-color);
 }
