@@ -17,6 +17,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { BooksEffects } from './store/book/book.effect';
 import { reducers, metaReducers } from './app.state';
+import { LoginComponent } from './components/login/login.component';
+import { TextInputComponent } from './components/parts/text-input/text-input.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { reducers, metaReducers } from './app.state';
     BookItemComponent,
     BookScreenComponent,
     HomeComponent,
+    LoginComponent,
+    TextInputComponent,
   ],
   imports: [
     BrowserModule,

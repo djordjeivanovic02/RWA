@@ -1,0 +1,17 @@
+<div class="login-background w-100">
+    <img [src]="mainImagePath" class="position-absolute w-100 h-100" alt="Main Image">
+    <div class="text-container position-absolute p-4 d-flex flex-column align-items-center">
+        <h3>Prijava</h3>
+        <div class="d-flex align-items justify-content-center">
+            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Početna</a>
+            <span class="mx-2">/</span>
+            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Prijava</a>
+        </div>
+    </div>
+</div>
+
+<div class="login-container w-100 d-flex align-items-center justify-content-center">
+    <div class="login-main w-100 p-4">
+        <app-text-input></app-text-input>
+    </div>
+</div>

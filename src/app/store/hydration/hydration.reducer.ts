@@ -23,7 +23,6 @@ export const hydrationMetaReducer = (
       localStorage.setItem("state", JSON.stringify(nextState));
       return nextState;
     } else {
-      console.warn('localStorage is not available.');
       return reducer(state, action);
     }
   };
