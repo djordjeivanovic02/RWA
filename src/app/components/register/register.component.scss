@@ -1,0 +1,60 @@
+.login-background{
+    height: 270px;
+    position: relative;
+}
+.login-background::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-gradient);
+    opacity: .81;
+    z-index: 1;
+}
+.text-container{
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-background img{
+    object-fit: cover;
+}
+.text-container a{
+    text-decoration: none;
+    color: black;
+    transition-duration: .3s;
+}
+.text-container a:hover{
+    color: var(--main-color);
+}
+.login-container{
+    margin-top: 50px;
+    padding: 20px;
+}
+.login-main{
+    max-width: 700px;
+    padding: 50px 30px;
+    background-color: var(--light-gray);
+}
+hr{
+    border: 1px solid black;
+}
+
+.another-action a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition-duration: .3s;
+}
+.another-action p{
+    color: gray;
+    font-size: 18px;
+}
+
+
+.another-action a:hover{
+    color: var(--main-color);
+}

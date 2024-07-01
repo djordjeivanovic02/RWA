@@ -1,7 +1,7 @@
 <div class="login-background w-100">
     <img [src]="mainImagePath" class="position-absolute w-100 h-100" alt="Main Image">
     <div class="text-container position-absolute p-4 d-flex flex-column align-items-center">
-        <h3>Profil</h3>
+        <h3>Nalog</h3>
         <div class="d-flex align-items justify-content-center">
             <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Početna</a>
             <span class="mx-2">/</span>
@@ -22,15 +22,18 @@
         <app-text-input
             placeholder="Lozinka"
             (valueChange)="onEmailChange($event)"
-            type="text"
+            type="password"
+            [isPassword]=true
         ></app-text-input>
         <div class="p-2"></div>
-        <app-login-register-button></app-login-register-button>
+        <app-login-register-button
+            [titleValue]="'Prijavi se'"
+        ></app-login-register-button>
         <hr>
         <div class="p-2"></div>
         <div class="another-action w-100 d-flex align-items-center justify-content-between">
             <a href="">Zaboravili ste lozinku?</a>
-            <a href="">Kreiraj nalog</a>
+            <a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Kreiraj nalog</a>
         </div>
     </div>
 </div>

@@ -1,0 +1,58 @@
+<div class="login-background w-100">
+    <img [src]="mainImagePath" class="position-absolute w-100 h-100" alt="Main Image">
+    <div class="text-container position-absolute p-4 d-flex flex-column align-items-center">
+        <h3>Kreiraj Nalog</h3>
+        <div class="d-flex align-items justify-content-center">
+            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Početna</a>
+            <span class="mx-2">/</span>
+            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Kreiraj Nalog</a>
+        </div>
+    </div>
+</div>
+
+<div class="login-container w-100 d-flex align-items-center justify-content-center">
+    <div class="login-main w-100">
+        <h2 class="text-center mb-5">Registruj se</h2>
+        <app-text-input
+            placeholder="Ime"
+            (valueChange)="onEmailChange($event)"
+            type="text"
+        ></app-text-input>
+        <div class="p-2"></div>
+        <app-text-input
+            placeholder="Prezime"
+            (valueChange)="onEmailChange($event)"
+            type="text"
+        ></app-text-input>
+        <div class="p-2"></div>
+        <app-text-input
+            placeholder="Email"
+            (valueChange)="onEmailChange($event)"
+            type="text"
+        ></app-text-input>
+        <div class="p-2"></div>
+        <app-text-input
+            placeholder="Lozinka"
+            (valueChange)="onEmailChange($event)"
+            type="password"
+            [isPassword] = true
+        ></app-text-input>
+        <div class="p-2"></div>
+        <app-text-input
+            placeholder="Ponovite lozinku"
+            (valueChange)="onEmailChange($event)"
+            type="password"
+            [isPassword] = true
+        ></app-text-input>
+        <div class="p-2"></div>
+        <app-login-register-button
+        [titleValue]="'Registruj se'"
+        ></app-login-register-button>
+        <hr>
+        <div class="p-2"></div>
+        <div class="another-action w-100 d-flex align-items-center justify-content-center">
+            <p class="m-0 mx-2">Već imate nalog? </p>
+            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Kreiraj nalog</a>
+        </div>
+    </div>
+</div>

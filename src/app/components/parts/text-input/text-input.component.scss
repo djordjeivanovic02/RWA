@@ -9,3 +9,13 @@ input{
 input:focus{
     border-color: black;
 }
+
+.show-hidde-password{
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}

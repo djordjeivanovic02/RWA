@@ -20,6 +20,7 @@ import { reducers, metaReducers } from './app.state';
 import { LoginComponent } from './components/login/login.component';
 import { TextInputComponent } from './components/parts/text-input/text-input.component';
 import { LoginRegisterButtonComponent } from './components/parts/login-register-button/login-register-button.component';
+import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { LoginRegisterButtonComponent } from './components/parts/login-register-
     LoginComponent,
     TextInputComponent,
     LoginRegisterButtonComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

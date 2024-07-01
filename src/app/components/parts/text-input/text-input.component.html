@@ -1,3 +1,7 @@
-<div class="w-100">
+<div class="w-100 position-relative">
     <input type="text" class="w-100" [placeholder]="placeholder" (input)="onInput($event)" [type]="type">
+    <div *ngIf="isPassword" class="show-hidde-password position-absolute d-flex align-items-center justify-content-center">
+        <fa-icon [icon]="faShowing" *ngIf="type === 'password'" (click)="changeState()"></fa-icon>
+        <fa-icon [icon]="faHiddening" *ngIf="type === 'text'" (click)="changeState()"></fa-icon>
+    </div>
 </div>
