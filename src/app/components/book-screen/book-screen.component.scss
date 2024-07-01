@@ -1,0 +1,45 @@
+.main-container{
+    max-width: 1310px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+    margin-top: 50px;
+
+}
+
+.image-container{
+    width: 38%;
+    height: 600px;
+    -webkit-box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.75);
+}
+.image-container img{
+    object-fit: cover;
+}
+
+.book-info-container{
+    width: 38%;
+}
+.best-sales-container{
+    width: 20%;
+}
+.best-sales-container h3{
+    margin-top: 50px;
+}
+.best-sales-container img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.best-item{
+    margin: 20px 0px;
+}
+
+.best-item-text{
+    margin-left: 10px;
+}
+.main-column{
+    width: 150px;
+}
