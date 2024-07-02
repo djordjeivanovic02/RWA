@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-login-register-button',
@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class LoginRegisterButtonComponent {
   @Input() titleValue: string = '';
+  @Output() buttonClick = new EventEmitter();
+
+  onButtonClick(){
+    this.buttonClick.emit();
+  }
 }

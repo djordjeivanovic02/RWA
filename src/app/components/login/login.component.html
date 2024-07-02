@@ -21,13 +21,14 @@
         <div class="p-2"></div>
         <app-text-input
             placeholder="Lozinka"
-            (valueChange)="onEmailChange($event)"
+            (valueChange)="onPasswordChange($event)"
             type="password"
             [isPassword]=true
         ></app-text-input>
         <div class="p-2"></div>
         <app-login-register-button
             [titleValue]="'Prijavi se'"
+            (buttonClick)="onLogin()"
         ></app-login-register-button>
         <hr>
         <div class="p-2"></div>

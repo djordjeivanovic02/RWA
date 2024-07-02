@@ -1,9 +1,10 @@
 <div class="w-100 d-flex flex-column">
-    <div class="d-flex align-items-center justify-content-center">
-        <div *ngIf="rateCounts$ | async as rateCounts">
-            <div *ngFor="let count of rateCounts let i = index" class="d-flex">
-                <app-stars [rating]="5-i"></app-stars>
-                <app-rate-visual [rateCout]="count" [allRatesCount]="ratesNumber"></app-rate-visual>
+    <div class="d-flex flex-column-reverse align-items-center justify-content-center">
+        <div *ngIf="rateCounts$ | async as rateCounts" class="d-flex flex-column-reverse">
+            <div *ngFor="let count of rateCounts let i = index" class="d-flex align-items-center justify-content-center">
+                <app-stars [rating]="i+1"></app-stars>
+                <app-rate-visual [rateCout]="count" [allRatesCount]="ratesNumber" class="mx-3"></app-rate-visual>
+                <p class="m-0">{{count}}</p>
             </div>
           </div>
     </div>

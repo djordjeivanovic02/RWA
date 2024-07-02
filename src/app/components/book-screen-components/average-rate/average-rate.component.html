@@ -2,9 +2,10 @@
     <div class="d-flex flex-column justify-content-center">
         <div class="w-100 d-flex">
             <app-stars [rating]="rating"></app-stars>
-            <b class="mx-2">{{rating}} od 5</b>
+            <b class="mx-2" *ngIf="rating">{{rating}} od 5</b>
+            <b class="mx-2" *ngIf="!rating">Nema ocena</b>
         </div>
-        <p>Na osnovu {{rateNumber}} recenzije</p>
+        <p *ngIf="rating">Na osnovu {{rateNumber}} recenzije</p>
     </div>
 </div>
 

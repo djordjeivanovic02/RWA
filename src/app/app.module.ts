@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { APP_ID, NgModule, PLATFORM_ID, TransferState, inject, makeStateKey } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformServer } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +11,7 @@ import { BookItemComponent } from './components/book-item/book-item.component';
 import { BookScreenComponent } from './components/book-screen/book-screen.component';
 import { HomeComponent } from './components/home/home.component';
 import { provideClientHydration } from '@angular/platform-browser';
-import { StoreModule, provideStore } from '@ngrx/store';
+import { INIT, StoreModule, provideStore } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
@@ -31,6 +31,7 @@ import { StarsComponent } from './components/parts/stars/stars.component';
 import { CustomerRatesComponent } from './components/book-screen-components/customer-rates/customer-rates.component';
 import { AverageRateComponent } from './components/book-screen-components/average-rate/average-rate.component';
 import { RateVisualComponent } from './components/parts/rate-visual/rate-visual.component';
+import { AuthEffects } from './store/auth/auth.effect';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +62,7 @@ import { RateVisualComponent } from './components/parts/rate-visual/rate-visual.
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({maxAge: 125}),
-    EffectsModule.forRoot(BooksEffects)
+    EffectsModule.forRoot(BooksEffects, AuthEffects)
   ],
   providers: [
     provideClientHydration(),
