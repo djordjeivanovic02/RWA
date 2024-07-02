@@ -1,46 +1,66 @@
-<div class="w-100 d-flex justify-content-center">
-  <div class="main-container w-100 d-flex">
-    <div class="best-sales-container">
-      <h3>Popularne knjige</h3>
-        <div class="best-item d-flex align-items-center">
-            <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
-            <div class="best-item-text">
-                <h4 class="m-0">Pocni sa zasto</h4>
-                <i class="m-0">Belestrika</i>
+<div class="w-100 d-flex flex-column align-items-center justify-content-center">
+    <div class="main-container w-100 d-flex">
+        <div class="best-sales-container">
+            <h3>Popularne knjige</h3>
+            <div class="best-item d-flex align-items-center">
+                <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
+                <div class="best-item-text">
+                    <h4 class="m-0">Pocni sa zasto</h4>
+                    <i class="m-0">Belestrika</i>
+                </div>
+            </div>
+            <div class="best-item d-flex align-items-center">
+                <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
+                <div class="best-item-text">
+                    <h4 class="m-0">Pocni sa zasto</h4>
+                    <i class="m-0">Belestrika</i>
+                </div>
             </div>
         </div>
-        <div class="best-item d-flex align-items-center">
-            <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
-            <div class="best-item-text">
-                <h4 class="m-0">Pocni sa zasto</h4>
-                <i class="m-0">Belestrika</i>
-            </div>
+        <div class="image-container">
+        <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Test" class="w-100 h-100">
         </div>
-    </div>
-    <div class="image-container">
-      <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Test" class="w-100 h-100">
-  </div>
-  <div class="book-info-container">
-    <h1>{{book?.title}}</h1>
-    <p>{{truncatedTitle}}</p>
-    <div class="w-100 d-flex">
-      
-      <div class="main-column">
-        <p>Autor</p>
-      </div>
-      <div class="main-info-column">
-        <p>Djordje Ivanovic</p>
-      </div>
+        <div class="book-info-container">
+        <h1>{{book?.title}}</h1>
+        <p>{{truncatedTitle}}</p>
+        
+        <app-book-info-classic
+            mainColumn="Autor"
+            infoColumn="{{book?.author?.name}} {{book?.author?.surname}}"
+        ></app-book-info-classic>
+
+        <app-book-info-classic
+            mainColumn="Kategorija"
+            infoColumn="{{book?.genre}}"
+        ></app-book-info-classic>
+
+        <app-book-info-classic
+            mainColumn="Jezik"
+            infoColumn="{{book?.language}}"
+            [isDecorated]=true
+        ></app-book-info-classic>
+
+        <app-book-info-classic
+            mainColumn="Datum dodavanja"
+            infoColumn="{{book?.created_at | date:'dd MMM yyyy'}}"
+            [isDecorated]=true
+        ></app-book-info-classic>
+
+        <div class="w-100 gap-4 mt-5 d-flex">
+            <app-book-actions class="w-100"
+            textValue="Dodaj u listu za čitanje"
+            ></app-book-actions>
+            <app-book-actions class="w-100"
+            textValue="Označi kao pročitano"
+            [isReverse]=true
+            ></app-book-actions>
+        </div>
+        </div>
     </div>
 
-    <div class="w-100 d-flex">
-      <div class="main-column">
-        <p>Kategorija</p>
-      </div>
-      <div class="main-info-column">
-        <p>Belestrika</p>
-      </div>
+    <div class="w-100 book-info-container">
+        <div class="d-flex">
+            djole
+        </div>
     </div>
-  </div>
-  </div>
 </div>

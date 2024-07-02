@@ -12,5 +12,6 @@ export interface Book {
     downloads?: number;
     rates?: Rate[];
     genre?: string;
-    averageRate: number
+    averageRate: number;
+    language?: string;
 }

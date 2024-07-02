@@ -1,0 +1,11 @@
+<div class="w-100 d-flex mb-3">
+    <div class="main-column">
+      <p class="m-0">{{ mainColumn }}</p>
+    </div>
+    <div class="main-info-column" *ngIf="!isDecorated">
+      <p class="m-0">{{ infoColumn }}</p>
+    </div>
+    <div class="main-info-column decorated" *ngIf="isDecorated">
+        <p class="m-0">{{ infoColumn }}</p>
+    </div>
+</div>

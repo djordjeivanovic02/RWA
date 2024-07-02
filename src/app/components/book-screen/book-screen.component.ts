@@ -15,7 +15,6 @@ import { selectCurrentBook } from '../../store/book/book.selector';
 export class BookScreenComponent implements OnInit {
   book?: Book;
 
-
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
@@ -39,7 +38,7 @@ export class BookScreenComponent implements OnInit {
           this.book = book;
         }
       });
-
+      console.log(this.book);
     }
   }
 

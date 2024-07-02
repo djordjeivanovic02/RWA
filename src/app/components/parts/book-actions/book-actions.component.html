@@ -1,0 +1,9 @@
+<button class="w-100 mb-2" *ngIf="!isReverse">
+    <fa-icon [icon]="faList"></fa-icon>
+    {{textValue}}
+</button>
+<button class="w-100 mb-2" *ngIf="isReverse">
+    <fa-icon [icon]="faCheck"></fa-icon>
+    {{textValue}}
+</button>
+
