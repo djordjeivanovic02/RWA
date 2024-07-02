@@ -18,11 +18,19 @@ import { EffectsModule } from '@ngrx/effects';
 import { BooksEffects } from './store/book/book.effect';
 import { reducers, metaReducers } from './app.state';
 import { LoginComponent } from './components/login/login.component';
-import { TextInputComponent } from './components/parts/text-input/text-input.component';
-import { LoginRegisterButtonComponent } from './components/parts/login-register-button/login-register-button.component';
+import { TextInputComponent } from './components/login-register-components/text-input/text-input.component';
+import { LoginRegisterButtonComponent } from './components/login-register-components/login-register-button/login-register-button.component';
 import { RegisterComponent } from './components/register/register.component';
-import { BookInfoClassicComponent } from './components/parts/book-info-classic/book-info-classic.component';
-import { BookActionsComponent } from './components/parts/book-actions/book-actions.component';
+import { BookInfoClassicComponent } from './components/book-screen-components/book-info-classic/book-info-classic.component';
+import { BookActionsComponent } from './components/book-screen-components/book-actions/book-actions.component';
+import { ButtonComponent } from './components/parts/button/button.component';
+import { BookInfoComponent } from './components/book-screen-components/book-info/book-info.component';
+import { BookDescriptionComponent } from './components/book-screen-components/book-description/book-description.component';
+import { BookReviewsComponent } from './components/book-screen-components/book-reviews/book-reviews.component';
+import { StarsComponent } from './components/parts/stars/stars.component';
+import { CustomerRatesComponent } from './components/book-screen-components/customer-rates/customer-rates.component';
+import { AverageRateComponent } from './components/book-screen-components/average-rate/average-rate.component';
+import { RateVisualComponent } from './components/parts/rate-visual/rate-visual.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +45,14 @@ import { BookActionsComponent } from './components/parts/book-actions/book-actio
     RegisterComponent,
     BookInfoClassicComponent,
     BookActionsComponent,
+    ButtonComponent,
+    BookInfoComponent,
+    BookDescriptionComponent,
+    BookReviewsComponent,
+    StarsComponent,
+    CustomerRatesComponent,
+    AverageRateComponent,
+    RateVisualComponent,
   ],
   imports: [
     BrowserModule,

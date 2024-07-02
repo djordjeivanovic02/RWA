@@ -18,8 +18,7 @@ export class BookScreenComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
-    private bookService: BookService,
-    private router: Router
+    private bookService: BookService
   ) {}
 
 

@@ -2,10 +2,13 @@ button{
     padding: 10px 20px;
     color: white;
     border: none;
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);
     transition-duration: .3s;
 }
 
-button:hover{
+button.active{
     background-color: black;
+}
+button.active:hover{
+    background-color: var(--secondary-color);
 }

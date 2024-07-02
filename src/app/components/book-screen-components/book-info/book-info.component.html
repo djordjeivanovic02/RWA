@@ -1,0 +1,8 @@
+<div class="w-100 book-info">
+    <div class="d-flex">
+        <app-button textValue="Opis" [isActive]="!showReviews" (clicked)="changeSelectedButton($event)"></app-button>
+        <app-button textValue="Recenzije" [isActive]="showReviews" class="mx-2"  (clicked)="changeSelectedButton($event)"></app-button>
+    </div>
+    <app-book-description [description]="book?.description" *ngIf="!showReviews"></app-book-description>
+    <app-book-reviews *ngIf="showReviews" [rates]="book?.rates"></app-book-reviews>
+</div>

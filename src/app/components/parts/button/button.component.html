@@ -1,0 +1,2 @@
+<button *ngIf="isActive" (click)="onClick($event)">{{textValue}}</button>
+<button *ngIf="!isActive" class="active" (click)="onClick($event)">{{textValue}}</button>

@@ -1,0 +1,13 @@
+.main-container{
+    width: 120px;
+    height: 15px; 
+    background-color: lightgray; 
+    position: relative;
+}
+.indicator{
+    position: absolute; 
+    top: 0px; 
+    left: 0px; 
+    height: 100%; 
+    background-color: var(--main-color)
+}
