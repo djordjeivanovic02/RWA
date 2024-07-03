@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, Inject, PLATFORM_ID  } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { AppState } from './app.state';
@@ -9,6 +9,7 @@ import { loadBooks } from './store/book/book.actions';
 import { LocalStorageService } from './services/local-storage.service';
 import { loginSuccess, logout } from './store/auth/auth.actions';
 import { AuthService } from './services/auth.service';
+import { getUserReadedBooks, getUserToReadBooks } from './store/booklist/booklist.actions';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,6 @@ export class AppComponent {
 
   constructor(
     private store: Store<AppState>,
-    @Inject(PLATFORM_ID) private platformId: any,
     private localStorageService: LocalStorageService,
     private authService: AuthService
   ){}
@@ -34,7 +34,9 @@ export class AppComponent {
     const token = this.localStorageService.getItem('authToken');
     if (token) {
       if (this.authService.isValidToken(token)) {
-        this.store.dispatch(loginSuccess({ token }));
+        const user = this.authService.getUserFromToken(token);
+        this.store.dispatch(loginSuccess({ token, user }));
+        this.store.dispatch(getUserToReadBooks({ userId: user.id }));
       } else {
         this.store.dispatch(logout());
       }

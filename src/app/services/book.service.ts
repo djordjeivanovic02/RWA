@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from '../models/book.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  private baseUrl = "http://127.0.0.1:3000";
+  private baseUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) { }
 

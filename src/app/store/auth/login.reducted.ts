@@ -3,24 +3,35 @@ import { loginFailure, loginSuccess, logout, registerFailure, registerSuccess } 
 
 export interface AuthState {
   token: string | null;
-  error: any | null;
+  user: any | null;
+  error: any;
 }
 
 export const initialState: AuthState = {
   token: null,
-  error: null,
+  user: null,
+  error: null
 };
 
 export const authReducer = createReducer(
   initialState,
-  on(loginSuccess, (state, { token }) => ({
+  on(loginSuccess, (state, { token, user }) => ({
     ...state,
     token,
-    error: null,
+    user,
+    error: null
   })),
   on(loginFailure, (state, { error }) => ({
     ...state,
-    error,
+    token: null,
+    user: null,
+    error
+  })),
+  on(logout, state => ({
+    ...state,
+    token: null,
+    user: null,
+    error: null
   })),
   on(registerSuccess, (state, { token }) => ({
     ...state,
@@ -31,5 +42,4 @@ export const authReducer = createReducer(
     ...state,
     error,
   })),
-  on(logout, () => initialState) // Resetuje stanje na početno stanje prilikom odjavljivanja
 );

@@ -36,6 +36,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorComponent } from './components/parts/error/error.component';
+import { BookListEffects } from './store/booklist/booklist.effects';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { ErrorComponent } from './components/parts/error/error.component';
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({maxAge: 125}),
-    EffectsModule.forRoot(BooksEffects, AuthEffects)
+    EffectsModule.forRoot(BooksEffects, AuthEffects, BookListEffects)
   ],
   providers: [
     provideClientHydration(),

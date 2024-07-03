@@ -18,7 +18,10 @@ export class AuthEffects {
       ofType(login),
       mergeMap(action =>
         this.authService.login(action.username, action.password).pipe(
-          map(response => loginSuccess({ token: response.token })),
+          map(response => {
+            const { token, user } = response; 
+            return loginSuccess({ token, user });
+          }),
           catchError(error => of(loginFailure({ error })))
         )
       )
@@ -30,7 +33,7 @@ export class AuthEffects {
       ofType(loginSuccess),
       tap(action => {
         this.localStorageService.setItem('authToken', action.token);
-        this.router.navigate(['/dashboard']);
+        // this.router.navigate(['/dashboard']);
       })
     ), { dispatch: false }
   );
@@ -49,7 +52,8 @@ export class AuthEffects {
       filter(token => !!token),
       map(token => {
         if (this.authService.isValidToken(token!)) {
-          return loginSuccess({ token: token! });
+          const user = this.authService.getUserFromToken(token!);
+          return loginSuccess({ token: token!, user });
         } else {
           return logout();
         }
@@ -64,8 +68,9 @@ export class AuthEffects {
       mergeMap(action =>
         this.authService.register(action.name, action.surname, action.email, action.password).pipe(
           map(response => {
-            this.localStorageService.setItem('authToken', response.data.token);
-            return registerSuccess({ token: response.data.token });
+            const { token, user } = response.data; 
+            this.localStorageService.setItem('authToken', token);
+            return registerSuccess({ token, user });
           }),
           catchError(error => of(registerFailure({ error })))
         )
@@ -82,8 +87,6 @@ export class AuthEffects {
     ), { dispatch: false }
   );
 
-
-
   logout$ = createEffect(() =>
     this.actions$.pipe(
       ofType(logout),
@@ -93,6 +96,7 @@ export class AuthEffects {
       })
     ), { dispatch: false }
   );
+
   constructor(
     private actions$: Actions,
     private authService: AuthService,

@@ -2,21 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = "http://127.0.0.1:3000";
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>((`${this.baseUrl}/auth/login`), { username, password });
+  login(username: string, password: string): Observable<{ token: string, user: any }> {
+    return this.http.post<{ token: string, user: any }>(`${this.apiUrl}/auth/login`, { username, password });
   }
 
   register(name: string, surname: string, email: string, password: string): Observable<any> {
-    return this.http.post<{ token: string }>(`${this.baseUrl}/auth/register`, { name, surname, email, password });
+    return this.http.post<{ token: string }>(`${this.apiUrl}/auth/register`, { name, surname, email, password });
   }
 
   decodeToken(token: string): JwtPayload | null {
@@ -40,5 +41,21 @@ export class AuthService {
 
   isValidToken(token: string): boolean {
     return !this.isTokenExpired(token);
+  }
+
+  getUserFromToken(token: string): any {
+    try {
+      const decodedToken: any = jwtDecode(token);
+      return {
+        id: decodedToken.id,
+        email: decodedToken.email,
+        name: decodedToken.name,
+        surname: decodedToken.surname,
+        about: decodedToken.about
+      };
+    } catch (error) {
+      console.error('Invalid token:', error);
+      return null;
+    }
   }
 }

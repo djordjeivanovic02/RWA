@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { faList, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
+import { faList, faCheck, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-book-actions',
@@ -9,7 +9,11 @@ import { faList, faCheck } from '@fortawesome/free-solid-svg-icons';
 export class BookActionsComponent {
   @Input() textValue: string = '';
   @Input() isReverse: boolean = false;
+  @Input() icon: IconDefinition = faList;
 
-  faList = faList;
-  faCheck = faCheck;
+  @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
+
+  emitButtonClick(){
+    this.buttonClick.emit();
+  }
 }

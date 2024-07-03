@@ -1,9 +1,9 @@
-<button class="w-100 mb-2 h-100" *ngIf="!isReverse">
-    <fa-icon [icon]="faList"></fa-icon>
+<button class="w-100 mb-2 h-100" *ngIf="!isReverse" (click)="emitButtonClick()">
+    <fa-icon [icon]="icon"></fa-icon>
     {{textValue}}
 </button>
-<button class="w-100 mb-2 h-100" *ngIf="isReverse">
-    <fa-icon [icon]="faCheck"></fa-icon>
+<button class="w-100 mb-2 h-100 reverse" *ngIf="isReverse" (click)="emitButtonClick()">
+    <fa-icon [icon]="icon"></fa-icon>
     {{textValue}}
 </button>
 

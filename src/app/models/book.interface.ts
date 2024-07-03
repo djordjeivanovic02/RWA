@@ -7,6 +7,7 @@ export interface Book {
     author?: User;
     image?: string;
     description?: string;
+    document?: string;
     created_at?: Date;
     format?: string;
     downloads?: number;
