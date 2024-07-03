@@ -18,24 +18,30 @@ export class Book {
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
-    @Column()
-    format: string;
-
     @Column({ type: 'int', default: 0 })
     downloads: number;
     
     @Column()
     genre: string;
 
-    @ManyToOne(() => User, (user) => user.books)
+    @Column({nullable: true})
+    image: string;
+
+    @Column({nullable: true})
+    document: string;
+
+    @Column({nullable: true})
+    language: string;
+
+    @ManyToOne(() => User, (user) => user.books, { eager: true})
     author: User;
 
-    @OneToMany(() => Comment, (comment) => comment.book)
+    @OneToMany(() => Comment, (comment) => comment.book, { eager: true})
     comments: Comment[];
 
-    @OneToMany(() => Rate, (rate) => rate.book)
+    @OneToMany(() => Rate, (rate) => rate.book, { eager: true})
     rates: Rate[];
 
-    @OneToMany(() => BookList, (bookList) => bookList.book)
+    @OneToMany(() => BookList, (bookList) => bookList.book, { eager: true})
     lists: BookList[];
 }

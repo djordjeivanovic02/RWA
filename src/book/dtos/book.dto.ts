@@ -4,9 +4,11 @@ export class BookDto {
     id: number;
     title: string;
     author: User;
+    image: String;
     description: string;
     created_at: Date;
-    format: string;
+    document: string;
+    language: string;
     downloads: number;
     rate: number;
     genre: string;

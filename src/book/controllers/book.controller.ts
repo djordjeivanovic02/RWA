@@ -1,17 +1,61 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UploadedFile, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { Book } from '../entities/book.entity';
 import { Observable } from 'rxjs';
 import { BookService } from '../services/book.service';
 import { CreateBookDto } from '../dtos/createBook.dto';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
 
 @Controller('book')
 export class BookController {
     constructor(private bookService: BookService){}
 
     @Post()
-    create(@Body() book: CreateBookDto): Observable<Book>{
-        return this.bookService.create(book);
+    @UseInterceptors(
+    FilesInterceptor('files', 2, {
+        storage: diskStorage({
+        destination: (req, file, cb) => {
+            const isImage = file.mimetype.startsWith('image/');
+            const isPdf = file.mimetype === 'application/pdf';
+            
+            if (isImage) {
+            cb(null, 'public/img');
+            } else if (isPdf) {
+            cb(null, 'public/pdf');
+            } else {
+            cb(new Error('Invalid file type'), null);
+            }
+        },
+        filename: (req, file, cb) => {
+            cb(null, file.originalname);
+        },
+        }),
+        fileFilter: (req, file, cb) => {
+        const isImage = file.mimetype.startsWith('image/');
+        const isPdf = file.mimetype === 'application/pdf';
+        
+        if (isImage || isPdf) {
+            cb(null, true);
+        } else {
+            cb(new Error('Invalid file type'), false);
+        }
+        },
+    }),
+    )
+    create(
+    @Body() book: CreateBookDto,
+    @UploadedFiles() files: Express.Multer.File[]
+    ): Observable<Book> {
+    files.forEach(file => {
+        if (file.mimetype.startsWith('image/')) {
+        book.image = `/public/img/${file.originalname}`;
+        } else if (file.mimetype === 'application/pdf') {
+        book.document = `/public/pdf/${file.originalname}`;
+        }
+    });
+
+    return this.bookService.create(book);
     }
 
     @Get()

@@ -24,7 +24,7 @@ export class AuthService {
 
     if (isPasswordValid) {
       const { password, ...userWithoutPassword } = user;
-      return this.jwtService.sign(userWithoutPassword);
+      return { token: this.jwtService.sign(userWithoutPassword) };
     }
 
     return null;

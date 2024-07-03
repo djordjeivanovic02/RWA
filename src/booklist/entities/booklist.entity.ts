@@ -10,7 +10,7 @@ export class BookList {
     @ManyToOne(() => User, (user) => user.lists)
     user: User;
 
-    @ManyToOne(() => Book, (book) => book.lists)
+    @ManyToOne(() => Book, (book) => book.lists, {onDelete: 'CASCADE'})
     book: Book;
 
     @Column({ type: 'enum', enum: ['to_read', 'readed'] })

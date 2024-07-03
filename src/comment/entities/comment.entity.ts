@@ -16,6 +16,6 @@ export class Comment{
     @ManyToOne(() => User, user => user.comments)
     user: User
 
-    @ManyToOne(() => Book, (book) => book.description)
+    @ManyToOne(() => Book, (book) => book.description, {onDelete: 'CASCADE'})
     book: Book
 }
