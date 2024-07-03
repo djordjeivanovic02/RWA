@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loginFailure, loginSuccess } from './auth.actions';
+import { loginFailure, loginSuccess, logout, registerFailure, registerSuccess } from './auth.actions';
 
 export interface AuthState {
   token: string | null;
@@ -21,5 +21,15 @@ export const authReducer = createReducer(
   on(loginFailure, (state, { error }) => ({
     ...state,
     error,
-  }))
+  })),
+  on(registerSuccess, (state, { token }) => ({
+    ...state,
+    token,
+    error: null,
+  })),
+  on(registerFailure, (state, { error }) => ({
+    ...state,
+    error,
+  })),
+  on(logout, () => initialState) // Resetuje stanje na početno stanje prilikom odjavljivanja
 );

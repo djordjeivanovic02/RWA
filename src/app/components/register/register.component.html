@@ -13,15 +13,17 @@
 <div class="login-container w-100 d-flex align-items-center justify-content-center">
     <div class="login-main w-100">
         <h2 class="text-center mb-5">Registruj se</h2>
+        <app-error *ngIf="isError" [classicError]="errorText"></app-error>
+        <app-error *ngIf="error$" [error]="error$ | async"></app-error>
         <app-text-input
             placeholder="Ime"
-            (valueChange)="onEmailChange($event)"
+            (valueChange)="onNameChange($event)"
             type="text"
         ></app-text-input>
         <div class="p-2"></div>
         <app-text-input
             placeholder="Prezime"
-            (valueChange)="onEmailChange($event)"
+            (valueChange)="onSurnameChange($event)"
             type="text"
         ></app-text-input>
         <div class="p-2"></div>
@@ -33,26 +35,27 @@
         <div class="p-2"></div>
         <app-text-input
             placeholder="Lozinka"
-            (valueChange)="onEmailChange($event)"
+            (valueChange)="onPasswordChange($event)"
             type="password"
             [isPassword] = true
         ></app-text-input>
         <div class="p-2"></div>
         <app-text-input
             placeholder="Ponovite lozinku"
-            (valueChange)="onEmailChange($event)"
+            (valueChange)="onRepeatedPasswordChange($event)"
             type="password"
             [isPassword] = true
         ></app-text-input>
         <div class="p-2"></div>
         <app-login-register-button
         [titleValue]="'Registruj se'"
+        (buttonClick)="onRegister()"
         ></app-login-register-button>
         <hr>
         <div class="p-2"></div>
         <div class="another-action w-100 d-flex align-items-center justify-content-center">
             <p class="m-0 mx-2">Već imate nalog? </p>
-            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Kreiraj nalog</a>
+            <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Prijavi se</a>
         </div>
     </div>
 </div>

@@ -13,6 +13,7 @@
 <div class="login-container w-100 d-flex align-items-center justify-content-center">
     <div class="login-main w-100">
         <h2 class="text-center mb-5">Prijavi se</h2>
+        <app-error *ngIf="error$" [error]="error$ | async"></app-error>
         <app-text-input
             placeholder="Email"
             (valueChange)="onEmailChange($event)"

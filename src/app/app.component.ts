@@ -6,6 +6,9 @@ import { faHeart, faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { AppState } from './app.state';
 import { loadBooks } from './store/book/book.actions';
+import { LocalStorageService } from './services/local-storage.service';
+import { loginSuccess, logout } from './store/auth/auth.actions';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -21,10 +24,20 @@ export class AppComponent {
 
   constructor(
     private store: Store<AppState>,
-    @Inject(PLATFORM_ID) private platformId: any
+    @Inject(PLATFORM_ID) private platformId: any,
+    private localStorageService: LocalStorageService,
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
     this.store.dispatch(loadBooks());
+    const token = this.localStorageService.getItem('authToken');
+    if (token) {
+      if (this.authService.isValidToken(token)) {
+        this.store.dispatch(loginSuccess({ token }));
+      } else {
+        this.store.dispatch(logout());
+      }
+    }
   }
 }

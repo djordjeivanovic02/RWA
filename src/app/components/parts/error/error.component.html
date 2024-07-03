@@ -1,0 +1,8 @@
+<div class="error-container w-100" *ngIf="error && error.error && error.error.message && classicError === ''">
+    <p class="m-0 text-center" *ngIf="error.error.message !== 'Unauthorized'">{{ error.error.message }}</p>
+    <p class="m-0 text-center" *ngIf="error.error.message === 'Unauthorized'">Neispravni podaci</p>
+</div>
+<div class="error-container w-100" *ngIf="classicError !== ''">
+    <p class="m-0 text-center">{{classicError}}</p>
+</div>
+<div class="p-2"></div>

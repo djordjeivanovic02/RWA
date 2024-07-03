@@ -32,6 +32,11 @@ import { CustomerRatesComponent } from './components/book-screen-components/cust
 import { AverageRateComponent } from './components/book-screen-components/average-rate/average-rate.component';
 import { RateVisualComponent } from './components/parts/rate-visual/rate-visual.component';
 import { AuthEffects } from './store/auth/auth.effect';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorComponent } from './components/parts/error/error.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +59,8 @@ import { AuthEffects } from './store/auth/auth.effect';
     CustomerRatesComponent,
     AverageRateComponent,
     RateVisualComponent,
+    DashboardComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
