@@ -66,4 +66,12 @@ export class BooklistController {
     ): Observable<DeleteResult>{
         return this.booklistService.deleteBookListStatus(id);
     }
+
+    @Delete(':bookId/:userId')
+    deleteBookListByUsers(
+        @Param('bookId') bookId: number,
+        @Param('userId') userId: number
+    ): Observable<DeleteResult>{
+        return this.booklistService.deleteBookListWhereUser(bookId, userId);
+    }
 }

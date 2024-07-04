@@ -79,7 +79,7 @@ export class BooklistService {
     getUserToReadBooks(id: number): Observable<Book[]>{
         return this.getUserListBooks(id, 'to_read');
     }
-
+    
     private getBookFromListBooks(
         id: number, 
         type: 'to_read' | 'readed'
@@ -129,4 +129,8 @@ export class BooklistService {
     deleteBookListStatus(id: number): Observable<DeleteResult>{
         return from(this.listRepository.delete(id));
     }
+
+    deleteBookListWhereUser(bookId: number, userId: number): Observable<DeleteResult> {
+        return from(this.listRepository.delete({ user: { id: userId }, book: { id: bookId } }));
+      }
 }
