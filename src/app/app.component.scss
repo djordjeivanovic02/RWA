@@ -40,3 +40,48 @@
 .second-nav a:hover{
     color: lightgray;
 }
+.new-book{
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.new-book .img{
+    color: white;
+}
+
+
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding-top: 80px;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  footer h5 {
+    margin-bottom: 1rem;
+  }
+  
+  footer .fa-2x {
+    margin-right: 10px;
+  }
+  
+  footer .fa-2x:hover {
+    color: #007bff;
+  }
+  
+  .footer-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:400px;
+  }

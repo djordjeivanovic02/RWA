@@ -1,9 +1,12 @@
 import { Injectable } from "@angular/core";
 import {
     loadBooks as loadBooksAction,
-    addBooks as addBooksAction
+    addBooks as addBooksAction,
+    addNewBook,
+    addNewBookSuccess,
+    addNewBookFailure
 } from './book.actions';
-import { map, switchMap } from "rxjs";
+import { map, mergeMap, switchMap } from "rxjs";
 import { Action } from "@ngrx/store";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { BookService } from "../../services/book.service";
@@ -26,4 +29,14 @@ export class BooksEffects {
             ),
         ),
     );
+    addBook$ = createEffect(() =>
+        this.actions$.pipe(
+          ofType(addNewBook),
+          mergeMap(action =>
+            this.service.addBook(action.book).pipe(
+              map((book) => addNewBookSuccess({ book }))
+            )
+          )
+        )
+      );
 }

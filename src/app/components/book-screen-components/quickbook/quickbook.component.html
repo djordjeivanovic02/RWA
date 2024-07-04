@@ -1,0 +1,10 @@
+<a *ngIf="book?.image" href="/book/{{book?.id}}">
+    <div class="item d-flex">
+        <img [src]="'http://127.0.0.1:3000/' + book?.image" alt="">
+        <div class="mx-3">
+            <h5 class="mb-1">{{book?.title}}</h5>
+            <small class="text-muted">{{book?.author?.name}} {{book?.author?.surname}}</small>
+            <p class="mb-1">{{truncatedTitle}}</p>
+        </div>
+    </div>
+</a>

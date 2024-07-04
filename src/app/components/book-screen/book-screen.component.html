@@ -1,22 +1,5 @@
 <div class="w-100 d-flex flex-column align-items-center">
     <div class="main-container w-100 d-flex">
-        <div class="best-sales-container">
-            <h3>Popularne knjige</h3>
-            <div class="best-item d-flex align-items-center">
-                <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
-                <div class="best-item-text">
-                    <h4 class="m-0">Pocni sa zasto</h4>
-                    <i class="m-0">Belestrika</i>
-                </div>
-            </div>
-            <div class="best-item d-flex align-items-center">
-                <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Popular Book Image">
-                <div class="best-item-text">
-                    <h4 class="m-0">Pocni sa zasto</h4>
-                    <i class="m-0">Belestrika</i>
-                </div>
-            </div>
-        </div>
         <div class="image-container">
         <img src="http://127.0.0.1:3000/{{book?.image}}" alt="Test" class="w-100 h-100">
         </div>
@@ -69,5 +52,5 @@
             ></app-book-actions>
         </div>
     </div>
-    <app-book-info class="w-100 d-flex  justify-content-center"></app-book-info>
+    <app-book-info class="w-100 d-flex  justify-content-center" [userId]="userId"></app-book-info>
 </div>

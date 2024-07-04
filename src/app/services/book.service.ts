@@ -18,4 +18,7 @@ export class BookService {
   getBook(id: number): Observable<Book>{
     return this.httpClient.get<Book>(`${this.baseUrl}/book/${id}`);
   }
+  addBook(bookData: FormData): Observable<any> {
+    return this.httpClient.post<any>(`${this.baseUrl}/book`, bookData);
+  }
 }

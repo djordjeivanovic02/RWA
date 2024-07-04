@@ -1,8 +1,8 @@
 
 <nav class="w-100 d-flex flex-column align-items-center justify-content-center">
   <div class="first-nav w-100 align-items-center justify-content-between">
-      <div class="two-icon align-items-center">
-          <a href="#"><fa-icon [icon]="faHeart"></fa-icon></a>
+      <div class="two-icon new-book align-items-center justify-content-center">
+          <a href="/new-book"><fa-icon [icon]="faHeart" class="img"></fa-icon></a>
       </div>
       <h1>Libra <span>Corner</span></h1>
       <div class="two-icon align-items-center">
@@ -19,3 +19,40 @@
   </div>
 </nav>
 <router-outlet></router-outlet>
+
+
+
+<footer class="bg-dark text-white mt-5 position-relative">
+  <img [src]="mainImage" alt="" class="footer-background w-100">
+  <div class="container py-4 position-relative">
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-3">
+        <h5>O meni</h5>
+        <p class="small">Ja sam Djordje Ivanovic, student sam trece godine elektronskog fakulteta u Nisu. Ovo je moj projekta iz predmeta RWA</p>
+      </div>
+      <div class="col-md-3">
+        <h5>Brzi Linkovi</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white">Početna</a></li>
+          <li><a href="#" class="text-white">Pretraži Knjige</a></li>
+          <li><a href="#" class="text-white">Najnovije</a></li>
+          <li><a href="#" class="text-white">O meni</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h5>Kontaktiraj me</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-map-marker-alt"></i>Stara Želeynička Kolonija 5A</li>
+          <li><i class="fas fa-phone"></i>0637303883</li>
+          <li><i class="fas fa-envelope"></i>idjordje63gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="row mt-4">
+      <div class="col text-center">
+        <p class="small">&copy; 2024 Djordje Ivanovic. Sva prava zadržava.</p>
+      </div>
+    </div>
+  </div>
+</footer>

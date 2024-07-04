@@ -1,3 +1,4 @@
+import { Comment } from "./comment.interface";
 import { Rate } from "./rate.interface";
 import { User } from "./user.interface";
 
@@ -15,4 +16,5 @@ export interface Book {
     genre?: string;
     averageRate: number;
     language?: string;
+    comments?: Comment[];
 }

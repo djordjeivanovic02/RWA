@@ -1,6 +1,6 @@
 import { APP_ID, NgModule, PLATFORM_ID, TransferState, inject, makeStateKey } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule, isPlatformServer } from '@angular/common';
+import { CommonModule, DatePipe, isPlatformServer } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +37,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorComponent } from './components/parts/error/error.component';
 import { BookListEffects } from './store/booklist/booklist.effects';
+import { CommentComponent } from './components/book-screen-components/comment/comment.component';
+import { UserImageComponent } from './components/parts/user-image/user-image.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import { QuickbookComponent } from './components/book-screen-components/quickbook/quickbook.component';
+import { RatingEffects } from './store/rating/rating.effects';
 
 @NgModule({
   declarations: [
@@ -62,6 +67,10 @@ import { BookListEffects } from './store/booklist/booklist.effects';
     RateVisualComponent,
     DashboardComponent,
     ErrorComponent,
+    CommentComponent,
+    UserImageComponent,
+    AddBookComponent,
+    QuickbookComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,11 +79,12 @@ import { BookListEffects } from './store/booklist/booklist.effects';
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({maxAge: 125}),
-    EffectsModule.forRoot(BooksEffects, AuthEffects, BookListEffects)
+    EffectsModule.forRoot(BooksEffects, AuthEffects, BookListEffects, RatingEffects),
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Book } from '../../models/book.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
@@ -12,13 +12,14 @@ import { Observable, map } from 'rxjs';
 import { selectAuthUser } from '../../store/auth/auth.selector';
 import { selectUserToReadBooks } from '../../store/booklist/booklist.selector';
 import { FileDownloadService } from '../../services/file-download.service';
+import { Comment } from '../../models/comment.interface';
 
 @Component({
   selector: 'app-book-screen',
   templateUrl: './book-screen.component.html',
   styleUrl: './book-screen.component.scss'
 })
-export class BookScreenComponent implements OnInit {
+export class BookScreenComponent implements OnInit{
   book?: Book;
   bookId: number = -1;
   readedListId: number | undefined = -1;
@@ -49,7 +50,6 @@ export class BookScreenComponent implements OnInit {
     this.getBook();
     this.getUserId();
     this.getToReadBooks();
-
   }
 
   getBook(){
@@ -67,6 +67,7 @@ export class BookScreenComponent implements OnInit {
         } else {
           this.book = book;
         }
+        console.log(this.book);
       });
     }
   }

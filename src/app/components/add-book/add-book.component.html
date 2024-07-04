@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Dodaj novu knjigu</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Naslov</label>
+        <input id="title" class="form-control" formControlName="title">
+      </div>
+      <div class="form-group">
+        <label for="description">Opis</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="language">Jezik</label>
+        <input id="language" class="form-control" formControlName="language">
+      </div>
+      <div class="form-group">
+        <label for="genre">Žanr</label>
+        <input id="genre" class="form-control" formControlName="genre">
+      </div>
+      <div class="form-group">
+        <label for="image">Slika</label>
+        <input type="file" id="image" (change)="onFileChange($event, 'image')">
+      </div>
+      <div class="form-group">
+        <label for="document">Dokument</label>
+        <input type="file" id="document" (change)="onFileChange($event, 'document')">
+      </div>
+      <button type="submit" class="btn btn-primary">Dodaj knjigu</button>
+    </form>
+  </div>
+  

@@ -7,3 +7,19 @@ export const selectBook = createAction(
     'Select book',
     props<{ bookId: number }>(),
 );
+
+export const addNewBook = createAction(
+    '[Book] Add Book',
+    props<{ book: FormData }>()
+  );
+  
+  export const addNewBookSuccess = createAction(
+    '[Book] Add Book Success',
+    props<{ book: Book }>()
+  );
+  
+  export const addNewBookFailure = createAction(
+    '[Book] Add Book Failure',
+    props<{ error: any }>()
+  );
+  

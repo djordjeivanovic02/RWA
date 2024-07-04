@@ -1,6 +1,17 @@
+.image-container{
+    height: 700px;
+    width: 100%;
+}
 .main-screen img{
     height: 700px;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.text-container{
+    z-index: 2;
 }
 .new-arrivals{
     max-width: 1310px;
@@ -16,3 +27,50 @@
     height: 5px;
     background-color: var(--main-color);
 }
+
+.banner {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding: 50px;
+    height: 400px;
+    width: 800px;
+  }
+  
+  .text-container {
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    transform: translateY(-50%);
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e94e3d;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .shop-now {
+    background-color: #e94e3d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .shop-now:hover {
+    background-color: #d43a2c;
+  }

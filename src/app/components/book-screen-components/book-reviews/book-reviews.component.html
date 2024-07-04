@@ -1,10 +1,22 @@
 <div class="book-reviews w-100">
     <h4 class="text-center">Recenzije Korisnika</h4>
     <div class="primary-reviews w-100 d-flex align-items-center justify-content-between mt-4">
-        <app-average-rate class="w-100" [rating]="averageRate" [rateNumber]="rates?.length"></app-average-rate>
-        <div class="separator"></div>
-        <app-customer-rates class="w-100" [rates]="rates"></app-customer-rates>
-        <div class="separator"></div>
-        <app-button textValue="Dodaj recenziju" class="w-100 d-flex justify-content-center"></app-button>
+      <app-average-rate class="w-100" [rating]="averageRate" [rateNumber]="rates?.length"></app-average-rate>
+      <div class="separator"></div>
+      <app-customer-rates class="w-100" [rates]="rates"></app-customer-rates>
+      <div class="separator"></div>
+      <div class="w-100 d-flex flex-column align-items-center">
+          <h4>Vaša ocena</h4>
+          <div class="star-rating d-flex justify-content-center">
+            <ng-container *ngFor="let star of starsArray; let i = index">
+                <fa-icon [icon]="star" (click)="rate(i + 1)"></fa-icon>
+            </ng-container>
+            </div>
+        <!-- <app-button textValue="Oceni knjigu" class="w-100 d-flex justify-content-center"></app-button> -->
+      </div>
     </div>
-</div>
+    <div class="comments-container w-100">
+      <app-comment [comments]="comments"></app-comment>
+    </div>
+  </div>
+  

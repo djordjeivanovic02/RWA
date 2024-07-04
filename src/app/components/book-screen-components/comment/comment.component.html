@@ -1,0 +1,14 @@
+<div class="w-100" *ngIf="comments && comments.length > 0">
+    <div class="comment-main w-100 d-flex align-items-start justify-content-between" *ngFor="let comment of comments">
+        <div class="w-75">
+            <div class="d-flex align-items-center my-3">
+                <app-user-image></app-user-image>
+                <p class="m-0 mx-2">{{ comment.user.name }} {{ comment.user.surname }}</p>
+            </div>
+            <b>{{ comment.content }}</b>
+        </div>
+        <div class="w-25 d-flex justify-content-end">
+            <p class="m-0">{{ comment.created_at | date: 'dd/MM/yyyy' }}</p>
+        </div>
+    </div>
+</div>

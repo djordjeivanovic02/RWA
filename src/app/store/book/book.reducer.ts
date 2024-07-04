@@ -5,12 +5,14 @@ import { Book } from "../../models/book.interface";
 
 export interface BookState extends EntityState<Book> {
   selectedBookId: number | null;
+  books: Book[];
 }
 
 export const adapter: EntityAdapter<Book> = createEntityAdapter<Book>();
 
 export const initialState: BookState = adapter.getInitialState({
   selectedBookId: null,
+  books: [],
 });
 
 export const bookReducer = createReducer(
@@ -19,5 +21,9 @@ export const bookReducer = createReducer(
   on(actions.selectBook, (state, { bookId }) => ({
     ...state,
     selectedBookId: bookId,
+  })),
+  on(actions.addNewBookSuccess, (state, { book }) => ({
+    ...state,
+    books: [...state.books, book]
   }))
 );
